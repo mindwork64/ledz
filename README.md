@@ -1,3 +1,3 @@
 # ledz
 
-Ledz util for ChipDip
+Ledz util for ChipDip, parts department
