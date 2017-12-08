@@ -1,3 +1,12 @@
+# Setting up g++ compiler
+CC=g++
+
+# Setting up compilation flags
+CFLAGS= -Wall
+
 all:
-		g++ main.cpp -o ledz
+		$(CC) $(CFLAGS) main.cpp -o ledz
+
+clean:
+		rm ledz
 
