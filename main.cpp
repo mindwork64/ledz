@@ -13,6 +13,11 @@ int main(void)
 		cin >> uSrc;
 		cout << "Напряжение диода: ";
 		cin >> uLed;
+		if ((float)uLed > (float)uSrc)
+		{
+			cout << "Напряжение диода не может быть выше напряжения источника!" << endl;
+			return (1);
+		}
 		cout << "Ток диода: ";
 		cin >> iLed;
 				
@@ -21,4 +26,5 @@ int main(void)
 				
 		cout << "Вычисленное сопротивление резистора: " << "\x1b[32m" << fResLed << "\x1b[37mОм" << endl;
 		cout << "Вычисленная мощность резистора: " << "\x1b[32m" << fResWatt << "\x1b[37mмВт" << endl;
+		return (0);
 	}
