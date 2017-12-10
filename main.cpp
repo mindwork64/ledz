@@ -3,6 +3,11 @@
 
 using namespace std;
 
+float findNextRes(float fCalculatedRes)
+{
+	// Здесь будет функция поиска ближайшего стандартного значения
+}
+
 int main(void)
 	{
 		float uSrc; // Напряжение источника питания
