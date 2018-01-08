@@ -13,29 +13,29 @@ int main(void)
 		float iCalcRes;
 		float iAbsRes;
 				
-		cout << "Напряжение источника: ";
+		cout << "Напряжение источника(V): ";
 		cin >> uSrc;
-		cout << "Напряжение диода: ";
+		cout << "Напряжение диода(V): ";
 		cin >> uLed;
 		if ((float)uLed > (float)uSrc)
 		{
 			cout << "Напряжение диода не может быть выше напряжения источника!" << endl;
 			return (1);
 		}
-		cout << "Ток диода: ";
+		cout << "Ток диода(mA): ";
 		cin >> iLed;
 				
 		float fResLed = (uSrc - uLed) / ((float)iLed / 1000);
 		float fResWatt = (pow(iLed, 2) * fResLed) / 10000;
 		iCalcRes = ceil(fResLed);
-		
-		for(int i=0; i<sizeof(vResList);i++)
+				
+		int index = 0;
+		do
 		{
-			if ((iCalcRes > vResList[i-1]) && (iCalcRes < vResList[i]))
-			{
-				iAbsRes = vResList[i];
-			}
-		}			
+			index++;
+		}
+			while (iCalcRes >= vResList[index]);		
+			iAbsRes = vResList[index];
 
 				
 		cout << "Вычисленное сопротивление резистора: " << "\x1b[32m" << fResLed << "\x1b[37mОм" << endl;
