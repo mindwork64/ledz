@@ -1,5 +1,7 @@
 #include <iostream>
 #include <cmath>
+#include <string>
+
 
 using namespace std;
 
@@ -26,7 +28,19 @@ int main(void)
 		cin >> iLed;
 				
 		float fResLed = (uSrc - uLed) / ((float)iLed / 1000);
-		float fResWatt = (pow(iLed, 2) * fResLed) / 10000;
+		float fResWatt = (pow(iLed, 2) * fResLed) / 1000;
+		
+		string wattMul;
+		if (fResWatt >= 1000)
+		{
+			fResWatt = fResWatt / 1000;
+			wattMul = "Вт";
+		}
+		else if (fResWatt < 1000)
+		{
+			wattMul = "мВт";
+		}
+			
 		iCalcRes = ceil(fResLed);
 				
 		int index = 0;
@@ -40,6 +54,6 @@ int main(void)
 				
 		cout << "Вычисленное сопротивление резистора: " << "\x1b[32m" << fResLed << "\x1b[37mОм" << endl;
 		cout << "Ближайшее стандартное значение резистора: " << "\x1b[32m" << iAbsRes << "\x1b[37mОм" << endl;
-		cout << "Вычисленная мощность резистора: " << "\x1b[32m" << fResWatt << "\x1b[37mмВт" << endl;
+		cout << "Вычисленная мощность резистора: " << "\x1b[32m" << fResWatt << "\x1b[37m" << wattMul << endl;
 		return (0);
 	}
