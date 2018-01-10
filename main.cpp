@@ -50,10 +50,19 @@ int main(void)
 		}
 			while (iCalcRes >= vResList[index]);		
 			iAbsRes = vResList[index];
-
+			string resMul;
+			if (iAbsRes >= 1000)
+			{
+				iAbsRes = iAbsRes / 1000;
+				resMul = "кОм";
+			}
+			else if (iAbsRes < 1000)
+			{
+				resMul = "Ом";
+			}
 				
 		cout << "Вычисленное сопротивление резистора: " << "\x1b[32m" << fResLed << "\x1b[37mОм" << endl;
-		cout << "Ближайшее стандартное значение резистора: " << "\x1b[32m" << iAbsRes << "\x1b[37mОм" << endl;
+		cout << "Ближайшее стандартное значение резистора: " << "\x1b[32m" << iAbsRes << "\x1b[37m" << resMul << endl;
 		cout << "Вычисленная мощность резистора: " << "\x1b[32m" << fResWatt << "\x1b[37m" << wattMul << endl;
 		return (0);
 	}
